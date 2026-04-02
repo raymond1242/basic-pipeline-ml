@@ -6,7 +6,7 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
-_SEPARATOR = "=" * 60
+_SEPARATOR = "=" * 60 + "\n"
 
 
 def monitor_raw(df: pd.DataFrame) -> None:
