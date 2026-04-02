@@ -6,6 +6,8 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
+_SEPARATOR = "=" * 60
+
 
 def monitor_raw(df: pd.DataFrame) -> None:
     """Analyze raw data quality before preprocessing.
@@ -16,8 +18,7 @@ def monitor_raw(df: pd.DataFrame) -> None:
     Args:
         df: Raw dataframe to inspect.
     """
-    separator = "=" * 60
-    logger.info(separator)
+    logger.info(_SEPARATOR)
     logger.info("MONITORING — RAW DATA")
     logger.info("Shape: %d rows x %d columns", df.shape[0], df.shape[1])
 
@@ -36,7 +37,7 @@ def monitor_raw(df: pd.DataFrame) -> None:
         logger.info("Duplicate rows: 0")
 
     logger.info("Descriptive statistics:\n%s", df.describe())
-    logger.info(separator)
+    logger.info(_SEPARATOR)
 
 
 def monitor_processed(df: pd.DataFrame, target_col: str | None = None) -> None:
@@ -50,8 +51,7 @@ def monitor_processed(df: pd.DataFrame, target_col: str | None = None) -> None:
         target_col: Name of the target column. If provided,
             its class distribution is logged.
     """
-    separator = "=" * 60
-    logger.info(separator)
+    logger.info(_SEPARATOR)
     logger.info("MONITORING — PROCESSED DATA")
     logger.info("Shape: %d rows x %d columns", df.shape[0], df.shape[1])
 
@@ -67,4 +67,4 @@ def monitor_processed(df: pd.DataFrame, target_col: str | None = None) -> None:
         dist = df[target_col].value_counts(normalize=True)
         logger.info("Target distribution (%s):\n%s", target_col, dist.to_string())
 
-    logger.info(separator)
+    logger.info(_SEPARATOR)
