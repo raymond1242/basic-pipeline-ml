@@ -9,8 +9,9 @@ import training as tr
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(name)s | %(message)s")
 
-DATA_PATH = "sleep_health_dataset.csv"
-
+DATA_PATH = "https://drive.google.com/uc?id=1MlddENKEcBMTFAQbYKCaETyKkc0bgEXn"
+# Local path for testing:
+# DATA_PATH = "sleep_health_dataset.csv"
 
 def main() -> None:
     """Run the full ML pipeline."""
